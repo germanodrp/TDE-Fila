@@ -49,9 +49,27 @@ export function Home() {
 
     }
 
+    function handleChamadaCaixa1(){
+
+    }
+
+    function handleChamadaCaixa2(){
+
+    }
     return (
         <div>
-            <div className="justify-center pt-20 gap-2 flex mt-5">
+            <div className="justify-center pt-5 gap-8 flex mt-5">
+            <ButtonGeneratePassword
+                description="Chamada Caixa 1"
+                onClick ={handleChamadaCaixa1}
+                />
+                <ButtonGeneratePassword
+                description="Chamada Caixa 2"
+                onClick ={handleChamadaCaixa2}
+                />
+
+            </div>
+            <div className="justify-center pt-2 gap-5 flex mt-5 ">
                 <ButtonGeneratePassword
                     description="Gerar senha para fila sem prioridade"
                     onClick={handleGenerateNormalPassword}
@@ -60,11 +78,16 @@ export function Home() {
                     description="Gerar senha para fila com prioridade"
                     onClick={handleGeneratePreferredPassword}
                 />
+                
+                
             </div>
+            
 
+
+            
             <div className="justify-center flex mt-5 gap-52">
                 <table className="flex mt-8">
-                    <tbody className="text-Black border-collapse border-spacing-y-52 border-4 border-indigo-500 bg-slate-200 rounded-lg">Senhas normais:
+                    <tbody className="text-Black border-collapse border-spacing-y-52 border-4 border-indigo-800 bg-slate-200 rounded-lg p-2">Senhas normais:
                         {normalPasswordQueue.map(password => (
                             <tr key={password}>
                                 <td>{password}</td>
@@ -74,10 +97,31 @@ export function Home() {
                 </table>
 
                 <table className="flex mt-8">
-                    <tbody className="text-Black border-collapse border-spacing-y-52 border-4 border-indigo-500 bg-slate-200 rounded-lg">Senhas preferencias:
+                    <tbody className="text-Black border-collapse border-spacing-y-52 border-4 border-indigo-800 bg-slate-200 rounded-lg p-2">Senhas preferencias:
                         {preferredPasswordQueue.map(password => (
                             <tr key={password}>
                                 <td>{password}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div className="justify-center flex mt-5 gap-52">
+                <table className="flex mt-8">
+                    <tbody className="text-Black border-collapse border-spacing-y-52 border-4 border-indigo-800 bg-slate-200 rounded-lg p-2">Atendimento Caixa 1:
+                        {normalPasswordQueue.map(password => (
+                            <tr >
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+
+                <table className="flex mt-8">
+                    <tbody className="text-Black border-collapse border-spacing-y-52 border-4 border-indigo-800 bg-slate-200 rounded-lg p-2">Atendimento Caixa 2:
+                        {preferredPasswordQueue.map(password => (
+                            <tr>
                             </tr>
                         ))}
                     </tbody>
