@@ -64,7 +64,7 @@ export function Home() {
 
             <div className="justify-center flex mt-5 gap-52">
                 <table className="flex mt-8">
-                    <tbody className="text-white border-collapse border-spacing-y-52">Senhas normais:
+                    <tbody className="text-Black border-collapse border-spacing-y-52 border-4 border-indigo-500 bg-slate-200 rounded-lg">Senhas normais:
                         {normalPasswordQueue.map(password => (
                             <tr key={password}>
                                 <td>{password}</td>
@@ -74,7 +74,7 @@ export function Home() {
                 </table>
 
                 <table className="flex mt-8">
-                    <tbody className="text-white border-collapse border-spacing-y-52">Senhas preferencias:
+                    <tbody className="text-Black border-collapse border-spacing-y-52 border-4 border-indigo-500 bg-slate-200 rounded-lg">Senhas preferencias:
                         {preferredPasswordQueue.map(password => (
                             <tr key={password}>
                                 <td>{password}</td>
