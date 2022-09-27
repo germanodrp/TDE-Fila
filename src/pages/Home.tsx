@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ButtonGeneratePassword } from "../components/ButtonGeneratePassword";
 
 
@@ -14,6 +14,9 @@ export function Home() {
 
     const [numberNormal, setNumberNormal] = useState<number>(1)
     const [normalPasswordQueue, setNormalPasswordQueue] = useState<string[]>([])
+
+    const [caixa1,setCaixa1]= useState<string[]>([])
+    const[caixa2,setCaixa2]= useState<string[]>([])
 
 
 
@@ -51,10 +54,56 @@ export function Home() {
 
     function handleChamadaCaixa1(){
 
+        let posicaoArray=preferredPasswordQueue[0];
+        let posicaoArrayNormal = normalPasswordQueue[0];
+
+if(preferredPasswordQueue != null && preferredPasswordQueue.length > 0){
+    caixa1.push(posicaoArray);
+        
+    preferredPasswordQueue.shift();
+    useEffect(()=>{setPreferredPasswordQueue});
+}
+else if(normalPasswordQueue != null && normalPasswordQueue.length > 0){
+    caixa1.push(posicaoArrayNormal);
+    normalPasswordQueue.shift();
+    useEffect(()=>{setNormalPasswordQueue});
+
+}
+else{
+    alert("todas as filas estão vazias!!")
+}
+
+        console.log(caixa1)
+        ;
     }
 
     function handleChamadaCaixa2(){
+        let posicaoArray=preferredPasswordQueue[0];
+        let posicaoArrayNormal = normalPasswordQueue[0];
 
+if(preferredPasswordQueue != null && preferredPasswordQueue.length > 0){
+    caixa2.push(posicaoArray);
+        
+    preferredPasswordQueue.shift();
+    useEffect(()=>{setPreferredPasswordQueue});
+}
+else if(normalPasswordQueue != null && normalPasswordQueue.length > 0){
+    caixa2.push(posicaoArrayNormal);
+    normalPasswordQueue.shift();
+    useEffect(()=>{setNormalPasswordQueue});
+
+}
+else{
+    alert("todas as filas estão vazias!!")
+}
+
+    }
+
+    function LogicaDeAdicionarNaFilaDoCaixa(){
+//verifica se existe senha preferencial
+
+//retirar da fila preferencial e adicionar na do caixa, quando fila preferencial estiver vazia
+//ela vai mover a da senha normal para a do caixa
     }
     return (
         <div>
@@ -111,17 +160,19 @@ export function Home() {
             <div className="justify-center flex mt-5 gap-52">
                 <table className="flex mt-8">
                     <tbody className="text-Black border-collapse border-spacing-y-52 border-4 border-indigo-800 bg-slate-200 rounded-lg p-2">Atendimento Caixa 1:
-                        {normalPasswordQueue.map(password => (
-                            <tr >
+                         {caixa1.map( x=> (
+                            <tr  key={x}>
+                                <td>{x}</td>
                             </tr>
-                        ))}
+                        ))} 
                     </tbody>
                 </table>
 
                 <table className="flex mt-8">
                     <tbody className="text-Black border-collapse border-spacing-y-52 border-4 border-indigo-800 bg-slate-200 rounded-lg p-2">Atendimento Caixa 2:
-                        {preferredPasswordQueue.map(password => (
-                            <tr>
+                        {caixa2.map(x => (
+                            <tr key={x}>
+                                <td>{x}</td>
                             </tr>
                         ))}
                     </tbody>
