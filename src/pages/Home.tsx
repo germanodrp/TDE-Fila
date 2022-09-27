@@ -110,11 +110,11 @@ export function Home() {
 //ela vai mover a da senha normal para a do caixa
     }
     return (
-        <div>
+        <div className="w-screen h-screen">
             <div className="justify-center pt-5 gap-8 flex mt-5">
-            <ButtonGeneratePassword
-                description="Chamada Caixa 1"
-                onClick ={handleChamadaCaixa1}
+                <ButtonGeneratePassword
+                    description="Chamada Caixa 1"
+                    onClick ={handleChamadaCaixa1}
                 />
                 <ButtonGeneratePassword
                 description="Chamada Caixa 2"
@@ -122,7 +122,8 @@ export function Home() {
                 />
 
             </div>
-            <div className="justify-center pt-2 gap-5 flex mt-5 ">
+
+            <div className="justify-center pt-10 gap-8 flex ">
                 <ButtonGeneratePassword
                     description="Gerar senha para fila sem prioridade"
                     onClick={handleGenerateNormalPassword}
@@ -131,16 +132,18 @@ export function Home() {
                     description="Gerar senha para fila com prioridade"
                     onClick={handleGeneratePreferredPassword}
                 />
-                
-                
+                      
             </div>
             
 
 
             
-            <div className="justify-center flex mt-5 gap-52">
+            <div className="justify-center flex mt-5 gap-8 font-bold">
                 <table className="flex mt-8">
-                    <tbody className="text-Black border-collapse border-spacing-y-52 border-4 border-indigo-800 bg-slate-200 rounded-lg p-2">Senhas normais:
+                    <tbody 
+                        className="w-48 rounded-lg border-4 bg-slate-200 border-[#f7941e] p-2"
+                    >
+                        Senhas normais:
                         {normalPasswordQueue.map(password => (
                             <tr key={password}>
                                 <td>{password}</td>
@@ -150,7 +153,7 @@ export function Home() {
                 </table>
 
                 <table className="flex mt-8">
-                    <tbody className="text-Black border-collapse border-spacing-y-52 border-4 border-indigo-800 bg-slate-200 rounded-lg p-2">Senhas preferencias:
+                    <tbody className="w-48 rounded-lg border-4 bg-slate-200 border-[#f7941e] p-2">Senhas preferencias:
                         {preferredPasswordQueue.map(password => (
                             <tr key={password}>
                                 <td>{password}</td>
@@ -161,9 +164,9 @@ export function Home() {
 
             </div>
 
-            <div className="justify-center flex mt-5 gap-52">
-                <table className="flex mt-8">
-                    <tbody className="text-Black border-collapse border-spacing-y-52 border-4 border-indigo-800 bg-slate-200 rounded-lg p-2">Atendimento Caixa 1:
+            <div className="justify-center flex pt-5 gap-8 font-bold">
+                <table className="flex pt-8">
+                    <tbody className="rounded-lg bg-black text-red-600 p-2">Atendimento Caixa 1:
                          {caixa1.map( firstPassword => (
                             <tr  key={firstPassword}>
                                 <td>{firstPassword}</td>
@@ -172,8 +175,8 @@ export function Home() {
                     </tbody>
                 </table>
 
-                <table className="flex mt-8">
-                    <tbody className="text-Black border-collapse border-spacing-y-52 border-4 border-indigo-800 bg-slate-200 rounded-lg p-2">Atendimento Caixa 2:
+                <table className="flex pt-8 font-bold">
+                    <tbody className="rounded-lg bg-black text-red-600 p-2">Atendimento Caixa 2:
                         {caixa2.map(firstPassword => (
                             <tr key={firstPassword}>
                                 <td>{firstPassword}</td>
