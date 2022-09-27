@@ -54,50 +54,54 @@ export function Home() {
 
     function handleChamadaCaixa1(){
 
-        let posicaoArray=preferredPasswordQueue[0];
-        let posicaoArrayNormal = normalPasswordQueue[0];
+    let posicaoArrayNormal = normalPasswordQueue[0];
+    let posicaoArrayPreferred = preferredPasswordQueue[0];
 
-if(preferredPasswordQueue != null && preferredPasswordQueue.length > 0){
-    caixa1.push(posicaoArray);
+    if(preferredPasswordQueue != null && preferredPasswordQueue.length > 0){
+        caixa1.push(posicaoArrayPreferred);
+
+        preferredPasswordQueue.shift();
         
-    preferredPasswordQueue.shift();
-    useEffect(()=>{setPreferredPasswordQueue});
-}
-else if(normalPasswordQueue != null && normalPasswordQueue.length > 0){
-    caixa1.push(posicaoArrayNormal);
-    normalPasswordQueue.shift();
-    useEffect(()=>{setNormalPasswordQueue});
+        setPreferredPasswordQueue([...preferredPasswordQueue])
+    }
+    else if(normalPasswordQueue != null && normalPasswordQueue.length > 0){
+        caixa1.push(posicaoArrayNormal);
 
-}
-else{
-    alert("todas as filas estão vazias!!")
-}
-
-        console.log(caixa1)
-        ;
+        normalPasswordQueue.shift();
+        
+        setNormalPasswordQueue([...normalPasswordQueue])
+    }
+    else{
+        alert("todas as filas estão vazias!!")
     }
 
-    function handleChamadaCaixa2(){
-        let posicaoArray=preferredPasswordQueue[0];
-        let posicaoArrayNormal = normalPasswordQueue[0];
+            console.log(caixa1)
+            ;
+        }
 
-if(preferredPasswordQueue != null && preferredPasswordQueue.length > 0){
-    caixa2.push(posicaoArray);
-        
-    preferredPasswordQueue.shift();
-    useEffect(()=>{setPreferredPasswordQueue});
-}
-else if(normalPasswordQueue != null && normalPasswordQueue.length > 0){
-    caixa2.push(posicaoArrayNormal);
-    normalPasswordQueue.shift();
-    useEffect(()=>{setNormalPasswordQueue});
+        function handleChamadaCaixa2(){
+            let posicaoArrayNormal = normalPasswordQueue[0];
+            let posicaoArrayPreferred = preferredPasswordQueue[0];
 
-}
-else{
-    alert("todas as filas estão vazias!!")
-}
+    if(preferredPasswordQueue != null && preferredPasswordQueue.length > 0){
+        caixa2.push(posicaoArrayPreferred);
+            
+        preferredPasswordQueue.shift();
 
+        setPreferredPasswordQueue([...preferredPasswordQueue])
     }
+    else if(normalPasswordQueue != null && normalPasswordQueue.length > 0){
+        caixa2.push(posicaoArrayNormal);
+
+        normalPasswordQueue.shift();
+
+        setNormalPasswordQueue([...normalPasswordQueue])
+    }
+    else{
+        alert("todas as filas estão vazias!!")
+    }
+
+        }
 
     function LogicaDeAdicionarNaFilaDoCaixa(){
 //verifica se existe senha preferencial
@@ -160,9 +164,9 @@ else{
             <div className="justify-center flex mt-5 gap-52">
                 <table className="flex mt-8">
                     <tbody className="text-Black border-collapse border-spacing-y-52 border-4 border-indigo-800 bg-slate-200 rounded-lg p-2">Atendimento Caixa 1:
-                         {caixa1.map( x=> (
-                            <tr  key={x}>
-                                <td>{x}</td>
+                         {caixa1.map( firstPassword => (
+                            <tr  key={firstPassword}>
+                                <td>{firstPassword}</td>
                             </tr>
                         ))} 
                     </tbody>
@@ -170,9 +174,9 @@ else{
 
                 <table className="flex mt-8">
                     <tbody className="text-Black border-collapse border-spacing-y-52 border-4 border-indigo-800 bg-slate-200 rounded-lg p-2">Atendimento Caixa 2:
-                        {caixa2.map(x => (
-                            <tr key={x}>
-                                <td>{x}</td>
+                        {caixa2.map(firstPassword => (
+                            <tr key={firstPassword}>
+                                <td>{firstPassword}</td>
                             </tr>
                         ))}
                     </tbody>
