@@ -141,7 +141,7 @@ export function Home() {
             <div className="justify-center flex mt-5 gap-8 font-bold">
                 <table className="flex mt-8">
                     <tbody 
-                        className="w-48 rounded-lg border-4 bg-slate-200 border-[#f7941e] p-2"
+                        className="w-48 rounded-lg border-4 bg-slate-200 border-orange-500 p-2"
                     >
                         Senhas normais:
                         {normalPasswordQueue.map(password => (
@@ -153,7 +153,7 @@ export function Home() {
                 </table>
 
                 <table className="flex mt-8">
-                    <tbody className="w-48 rounded-lg border-4 bg-slate-200 border-[#f7941e] p-2">Senhas preferencias:
+                    <tbody className="w-48 rounded-lg border-4 bg-slate-200 border-orange-500 p-2">Senhas preferencias:
                         {preferredPasswordQueue.map(password => (
                             <tr key={password}>
                                 <td>{password}</td>
