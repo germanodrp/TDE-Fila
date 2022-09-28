@@ -141,7 +141,7 @@ export function Home() {
             <div className="justify-center flex mt-5 gap-8 font-bold">
                 <table className="flex mt-8">
                     <tbody 
-                        className="w-48 rounded-lg border-4 bg-slate-200 border-orange-500 p-2"
+                        className="w-56 text-center rounded-lg font-bold border-2 border-[#6d2177] bg-slate-300 p-2"
                     >
                         Senhas normais:
                         {normalPasswordQueue.map(password => (
@@ -153,7 +153,7 @@ export function Home() {
                 </table>
 
                 <table className="flex mt-8">
-                    <tbody className="w-48 rounded-lg border-4 bg-slate-200 border-orange-500 p-2">Senhas preferencias:
+                    <tbody className="w-56 text-center rounded-lg font-bold border-2 border-[#6d2177] bg-slate-300 p-2">Senhas preferencias:
                         {preferredPasswordQueue.map(password => (
                             <tr key={password}>
                                 <td>{password}</td>
@@ -166,7 +166,7 @@ export function Home() {
 
             <div className="justify-center flex pt-5 gap-8 font-bold">
                 <table className="flex pt-8">
-                    <tbody className="rounded-lg bg-black text-red-600 p-2">Atendimento Caixa 1:
+                    <tbody className="w-56 text-center rounded-lg border-2 border-[#6d2177] bg-[#6d2177] text-slate-200 p-2">Atendimento Caixa 1:
                          {caixa1.map( firstPassword => (
                             <tr  key={firstPassword}>
                                 <td>{firstPassword}</td>
@@ -176,7 +176,7 @@ export function Home() {
                 </table>
 
                 <table className="flex pt-8 font-bold">
-                    <tbody className="rounded-lg bg-black text-red-600 p-2">Atendimento Caixa 2:
+                    <tbody className="w-56 text-center rounded-lg border-2 border-[#6d2177] bg-[#6d2177] text-slate-200 p-2">Atendimento Caixa 2:
                         {caixa2.map(firstPassword => (
                             <tr key={firstPassword}>
                                 <td>{firstPassword}</td>
